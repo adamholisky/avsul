@@ -11,15 +11,20 @@ The library is broken down into three areas: data structures, algorithms, and ut
 | Component | Status | Notes |
 |---|---|---|
 | Bit Array | 🔴 |  | 
-| Dictionary | 🔴 |  | 
+| Key-Value Store | 🔴 |  | 
 | Doubly Linked List | 🔴 |  | 
+| Graph | 🔴 |  |
+| Priority Queue | 🔴 |  |
 | Singularly Linked List | 🔴 |  | 
+| Stack | 🔴 |  |
+| Tree | 🔴 |  |
 
 ### Algorithms
 
 | Component | Status | Notes | 
 |---|---|---|
 | CRC32 | 🔴 |  | 
+| Heapsort | 🔴 |  |
 | RegEx | 🔴 | Very VERY simple | 
 | SHA256 Hash | 🔴 |  | 
 | Tokenizer | 🔴 |  |
@@ -29,6 +34,7 @@ The library is broken down into three areas: data structures, algorithms, and ut
 | Component | Status | Notes | 
 |---|---|---|
 | AVSI | 🔴 | A Very Simple Interpreter | 
+| AVSTF | 🔴 | A Very Simple Test Framework |
 
 ## Underlying philosophy and goals
 
@@ -40,8 +46,8 @@ Goals for the library:
 3. **Safety first**. Given a choice between writing a safe routine and making the routine a few ticks faster, prefer safety.
 
 Personally, I have a few goals with this as well:
-- *Full use of standard GNU tools*
-- *Nearly complete code coverage in unit tests*
-- *Full integrated CICD pipeline*
-- *Nothing is under NDA*! Yay! So much of what I've ever written is under lock and key, this is a space for me to show off a high-level of software engineering skills.
+- **Full use of standard GNU tools**
+- **Nearly complete code coverage with [cmocka](https://cmocka.org/)**
+- **Full integrated CICD pipeline**
+- **Nothing is under NDA**! Yay! So much of what I've ever written is under lock and key, this is a space for me to show off a high-level of software engineering skills (albiet straight forward, but still useful to me outside of it just being a project).
 
