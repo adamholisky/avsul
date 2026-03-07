@@ -81,15 +81,16 @@ $(document).ready(function() { init_codefold(0); });
   <div class="headertitle"><div class="title">bitmap.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<a href="bitmap_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;bool.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdstr.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;avsul.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="avsul_8h.html">avsul.h</a>&quot;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;avsul/avsul.h&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">bool</span> vi_bitmap_create( vi_bitmap *b, uint64_t size ) {</div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="}">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="bitmap_8c.html#a2af5a8b8ed83332f6e76c55ca4e99f6b">   15</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="bitmap_8c.html#a2af5a8b8ed83332f6e76c55ca4e99f6b">vi_bitmap_create</a>( vi_bitmap *b, uint64_t size ) {</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -124,8 +125,10 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>}</div>
+</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">bool</span> vi_bitmap_test( vi_bitmap *b, uint64_t bit_num ) {</div>
+<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">   59</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">vi_bitmap_test</a>( vi_bitmap *b, uint64_t bit_num ) {</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
@@ -141,16 +144,22 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">return</span> (b-&gt;fields[field] &amp; (1UL&lt;&lt;bit)) &gt;= 1 ? true : <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="keywordtype">bool</span> vi_bitmap_set( vi_bitmap *b, uint64_t bit_num ) {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> vi_bitmap_set_to( b, bit_num, <span class="keyword">true</span> );</div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="bitmap_8c.html#aff8514057514ff05868e47f148f3cd6e">   84</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="bitmap_8c.html#aff8514057514ff05868e47f148f3cd6e">vi_bitmap_set</a>( vi_bitmap *b, uint64_t bit_num ) {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a>( b, bit_num, <span class="keyword">true</span> );</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>}</div>
+</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">bool</span> vi_bitmap_clear( vi_bitmap *b, uint64_t bit_num ) {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">return</span> vi_bitmap_set_to( b, bit_num, <span class="keyword">false</span> );</div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="bitmap_8c.html#a67cc8e9a31ea46d57089dffa1355d1b5">   96</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="bitmap_8c.html#a67cc8e9a31ea46d57089dffa1355d1b5">vi_bitmap_clear</a>( vi_bitmap *b, uint64_t bit_num ) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a>( b, bit_num, <span class="keyword">false</span> );</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">bool</span> vi_bitmap_set_to( vi_bitmap *b, uint64_t bit_num, <span class="keywordtype">bool</span> val ) {</div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">  109</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a>( vi_bitmap *b, uint64_t bit_num, <span class="keywordtype">bool</span> val ) {</div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;</div>
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
@@ -177,20 +186,30 @@ $(document).ready(function() { init_codefold(0); });
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="comment">//printf( &quot;setting field: %ld    bit: %d    set: %d (%llX)    field data: 0x%llX\n&quot;, field, bit, val, (1UL&lt;&lt;bit),b-&gt;fields[field] );</span></div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
+</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keywordtype">void</span> vi_bitmap_for_each_set( vi_bitmap *b, <span class="keywordtype">void</span> (*func)(VI_BITMAP_FIELD_TYPE, <span class="keywordtype">void</span> *), <span class="keywordtype">void</span> *data ) {</div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="bitmap_8c.html#aaf2ab0d77c77e1badf6fb46b01aa31bf">  138</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="bitmap_8c.html#aaf2ab0d77c77e1badf6fb46b01aa31bf">vi_bitmap_for_each_set</a>( vi_bitmap *b, <span class="keywordtype">void</span> (*func)(VI_BITMAP_FIELD_TYPE, <span class="keywordtype">void</span> *), <span class="keywordtype">void</span> *data ) {</div>
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    }</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <span class="keywordflow">for</span>( uint64_t i = 0; i &lt; b-&gt;bit_count; i++ ) {</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">if</span>( vi_bitmap_test(b,i) ) {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">if</span>( <a class="code hl_function" href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">vi_bitmap_test</a>(b,i) ) {</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            func( i, data );</div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        }</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
+</div>
+<div class="ttc" id="aavsul_8h_html"><div class="ttname"><a href="avsul_8h.html">avsul.h</a></div></div>
+<div class="ttc" id="abitmap_8c_html_a2af5a8b8ed83332f6e76c55ca4e99f6b"><div class="ttname"><a href="bitmap_8c.html#a2af5a8b8ed83332f6e76c55ca4e99f6b">vi_bitmap_create</a></div><div class="ttdeci">bool vi_bitmap_create(vi_bitmap *b, uint64_t size)</div><div class="ttdoc">Create a bitmap of the given size.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00015">bitmap.c:15</a></div></div>
+<div class="ttc" id="abitmap_8c_html_a67cc8e9a31ea46d57089dffa1355d1b5"><div class="ttname"><a href="bitmap_8c.html#a67cc8e9a31ea46d57089dffa1355d1b5">vi_bitmap_clear</a></div><div class="ttdeci">bool vi_bitmap_clear(vi_bitmap *b, uint64_t bit_num)</div><div class="ttdoc">Clears the given bit.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00096">bitmap.c:96</a></div></div>
+<div class="ttc" id="abitmap_8c_html_a773aea4aa3c693a73ea0ab5a059df1c3"><div class="ttname"><a href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">vi_bitmap_test</a></div><div class="ttdeci">bool vi_bitmap_test(vi_bitmap *b, uint64_t bit_num)</div><div class="ttdoc">Tests the state of the given bit.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00059">bitmap.c:59</a></div></div>
+<div class="ttc" id="abitmap_8c_html_aaf2ab0d77c77e1badf6fb46b01aa31bf"><div class="ttname"><a href="bitmap_8c.html#aaf2ab0d77c77e1badf6fb46b01aa31bf">vi_bitmap_for_each_set</a></div><div class="ttdeci">void vi_bitmap_for_each_set(vi_bitmap *b, void(*func)(VI_BITMAP_FIELD_TYPE, void *), void *data)</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00138">bitmap.c:138</a></div></div>
+<div class="ttc" id="abitmap_8c_html_ab29190c0a111877bcb497e5546de96c3"><div class="ttname"><a href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a></div><div class="ttdeci">bool vi_bitmap_set_to(vi_bitmap *b, uint64_t bit_num, bool val)</div><div class="ttdoc">Sets a bit to the given state.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00109">bitmap.c:109</a></div></div>
+<div class="ttc" id="abitmap_8c_html_aff8514057514ff05868e47f148f3cd6e"><div class="ttname"><a href="bitmap_8c.html#aff8514057514ff05868e47f148f3cd6e">vi_bitmap_set</a></div><div class="ttdeci">bool vi_bitmap_set(vi_bitmap *b, uint64_t bit_num)</div><div class="ttdoc">Sets the given bit.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00084">bitmap.c:84</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

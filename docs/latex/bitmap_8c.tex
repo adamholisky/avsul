@@ -1,0 +1,312 @@
+\doxysection{src/bitmap.c File Reference}
+\hypertarget{bitmap_8c}{}\label{bitmap_8c}\index{src/bitmap.c@{src/bitmap.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$bool.\+h$>$}\newline
+{\ttfamily \#include $<$stdstr.\+h$>$}\newline
+{\ttfamily \#include "{}avsul.\+h"{}}\newline
+{\ttfamily \#include "{}avsul/avsul.\+h"{}}\newline
+Include dependency graph for bitmap.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bitmap_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{bitmap_8c_a2af5a8b8ed83332f6e76c55ca4e99f6b}{vi\+\_\+bitmap\+\_\+create}} (vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}b, uint64\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Create a bitmap of the given size. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{bitmap_8c_a773aea4aa3c693a73ea0ab5a059df1c3}{vi\+\_\+bitmap\+\_\+test}} (vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}b, uint64\+\_\+t bit\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Tests the state of the given bit. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{bitmap_8c_aff8514057514ff05868e47f148f3cd6e}{vi\+\_\+bitmap\+\_\+set}} (vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}b, uint64\+\_\+t bit\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Sets the given bit. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{bitmap_8c_a67cc8e9a31ea46d57089dffa1355d1b5}{vi\+\_\+bitmap\+\_\+clear}} (vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}b, uint64\+\_\+t bit\+\_\+num)
+\begin{DoxyCompactList}\small\item\em Clears the given bit. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{bitmap_8c_ab29190c0a111877bcb497e5546de96c3}{vi\+\_\+bitmap\+\_\+set\+\_\+to}} (vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}b, uint64\+\_\+t bit\+\_\+num, bool val)
+\begin{DoxyCompactList}\small\item\em Sets a bit to the given state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{bitmap_8c_aaf2ab0d77c77e1badf6fb46b01aa31bf}{vi\+\_\+bitmap\+\_\+for\+\_\+each\+\_\+set}} (vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}b, void(\texorpdfstring{$\ast$}{*}func)(VI\+\_\+\+BITMAP\+\_\+\+FIELD\+\_\+\+TYPE, void \texorpdfstring{$\ast$}{*}), void \texorpdfstring{$\ast$}{*}data)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{bitmap_8c_a67cc8e9a31ea46d57089dffa1355d1b5}\label{bitmap_8c_a67cc8e9a31ea46d57089dffa1355d1b5} 
+\index{bitmap.c@{bitmap.c}!vi\_bitmap\_clear@{vi\_bitmap\_clear}}
+\index{vi\_bitmap\_clear@{vi\_bitmap\_clear}!bitmap.c@{bitmap.c}}
+\doxysubsubsection{\texorpdfstring{vi\_bitmap\_clear()}{vi\_bitmap\_clear()}}
+{\footnotesize\ttfamily bool vi\+\_\+bitmap\+\_\+clear (\begin{DoxyParamCaption}\item[{vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}}]{b,  }\item[{uint64\+\_\+t}]{bit\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Clears the given bit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the bitmap struct \\
+\hline
+{\em bit\+\_\+num} & bit number to clear \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Success 
+
+false Failure 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{bitmap_8c_source_l00096}{96}} of file \mbox{\hyperlink{bitmap_8c_source}{bitmap.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{bitmap_8c_ab29190c0a111877bcb497e5546de96c3}{vi\_bitmap\_set\_to}}(\ b,\ bit\_num,\ \textcolor{keyword}{false}\ );}
+\DoxyCodeLine{00098\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bitmap_8c_source_l00109}{vi\+\_\+bitmap\+\_\+set\+\_\+to()}}.
+
+\Hypertarget{bitmap_8c_a2af5a8b8ed83332f6e76c55ca4e99f6b}\label{bitmap_8c_a2af5a8b8ed83332f6e76c55ca4e99f6b} 
+\index{bitmap.c@{bitmap.c}!vi\_bitmap\_create@{vi\_bitmap\_create}}
+\index{vi\_bitmap\_create@{vi\_bitmap\_create}!bitmap.c@{bitmap.c}}
+\doxysubsubsection{\texorpdfstring{vi\_bitmap\_create()}{vi\_bitmap\_create()}}
+{\footnotesize\ttfamily bool vi\+\_\+bitmap\+\_\+create (\begin{DoxyParamCaption}\item[{vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}}]{b,  }\item[{uint64\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Create a bitmap of the given size. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & 1 through (max of size\+\_\+t) bit fields. NOT 0-\/based. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if successful, false otherwise 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{bitmap_8c_source_l00015}{15}} of file \mbox{\hyperlink{bitmap_8c_source}{bitmap.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordflow}{if}(\ b\ ==\ NULL\ )\ \{}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}vi\_bitmap\ *b\ is\ NULL.\ Failing.\(\backslash\)n"{}}\ );}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{keywordflow}{if}(\ size\ <\ 1\ )\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}Size\ must\ be\ 1\ or\ greater.\ Failing.\(\backslash\)n"{}}\ );}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00024\ \ \ \ \ \}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordflow}{if}(\ size\ >=\ VI\_BITMAP\_MAX\_BIT\_COUNT\ )\ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}Size\ must\ be\ under\ \%ld,\ got\ \%ld.\ Failing.\(\backslash\)n"{}},\ VI\_BITMAP\_MAX\_BIT\_COUNT,\ size\ );}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00029\ \ \ \ \ \}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ b-\/>field\_count\ =\ size\ /\ VI\_BITMAP\_FIELD\_SIZE;}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{if}(\ size\ \%\ VI\_BITMAP\_FIELD\_SIZE\ !=\ 0\ )\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ b-\/>field\_count++;}
+\DoxyCodeLine{00035\ \ \ \ \ \}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ b-\/>fields\ =\ vmalloc(\ \textcolor{keyword}{sizeof}(VI\_BITMAP\_FIELD\_TYPE)\ *\ b-\/>field\_count\ );}
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordflow}{if}(\ b-\/>fields\ ==\ NULL\ )\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}b-\/>fields\ is\ NULL.\ Failing.\(\backslash\)n"{}}\ );}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ \ \ \ \ b-\/>bit\_count\ =\ size;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ memset(\ b-\/>fields,\ 0,\ b-\/>field\_count\ *\ (VI\_BITMAP\_FIELD\_SIZE/8)\ );}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}size:\ \%ld\ \ \ \ field\_count:\ \%ld\(\backslash\)n"{}},\ size,\ b-\/>field\_count\ );}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \}}
+
+\end{DoxyCode}
+\Hypertarget{bitmap_8c_aaf2ab0d77c77e1badf6fb46b01aa31bf}\label{bitmap_8c_aaf2ab0d77c77e1badf6fb46b01aa31bf} 
+\index{bitmap.c@{bitmap.c}!vi\_bitmap\_for\_each\_set@{vi\_bitmap\_for\_each\_set}}
+\index{vi\_bitmap\_for\_each\_set@{vi\_bitmap\_for\_each\_set}!bitmap.c@{bitmap.c}}
+\doxysubsubsection{\texorpdfstring{vi\_bitmap\_for\_each\_set()}{vi\_bitmap\_for\_each\_set()}}
+{\footnotesize\ttfamily void vi\+\_\+bitmap\+\_\+for\+\_\+each\+\_\+set (\begin{DoxyParamCaption}\item[{vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}}]{b,  }\item[{void(\texorpdfstring{$\ast$}{*})(VI\+\_\+\+BITMAP\+\_\+\+FIELD\+\_\+\+TYPE, void \texorpdfstring{$\ast$}{*})}]{func,  }\item[{void \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{bitmap_8c_source_l00138}{138}} of file \mbox{\hyperlink{bitmap_8c_source}{bitmap.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordflow}{if}(\ b\ ==\ NULL\ )\ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}vi\_bitmap\ *b\ is\ NULL.\ Failing.\(\backslash\)n"{}}\ );}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00142\ \ \ \ \ \}}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keywordflow}{for}(\ uint64\_t\ i\ =\ 0;\ i\ <\ b-\/>bit\_count;\ i++\ )\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(\ \mbox{\hyperlink{bitmap_8c_a773aea4aa3c693a73ea0ab5a059df1c3}{vi\_bitmap\_test}}(b,i)\ )\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ func(\ i,\ data\ );}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bitmap_8c_source_l00059}{vi\+\_\+bitmap\+\_\+test()}}.
+
+\Hypertarget{bitmap_8c_aff8514057514ff05868e47f148f3cd6e}\label{bitmap_8c_aff8514057514ff05868e47f148f3cd6e} 
+\index{bitmap.c@{bitmap.c}!vi\_bitmap\_set@{vi\_bitmap\_set}}
+\index{vi\_bitmap\_set@{vi\_bitmap\_set}!bitmap.c@{bitmap.c}}
+\doxysubsubsection{\texorpdfstring{vi\_bitmap\_set()}{vi\_bitmap\_set()}}
+{\footnotesize\ttfamily bool vi\+\_\+bitmap\+\_\+set (\begin{DoxyParamCaption}\item[{vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}}]{b,  }\item[{uint64\+\_\+t}]{bit\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Sets the given bit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the bitmap struct \\
+\hline
+{\em bit\+\_\+num} & bit number to set \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Success 
+
+false Failure 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{bitmap_8c_source_l00084}{84}} of file \mbox{\hyperlink{bitmap_8c_source}{bitmap.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{bitmap_8c_ab29190c0a111877bcb497e5546de96c3}{vi\_bitmap\_set\_to}}(\ b,\ bit\_num,\ \textcolor{keyword}{true}\ );}
+\DoxyCodeLine{00086\ \}}
+
+\end{DoxyCode}
+
+
+References \mbox{\hyperlink{bitmap_8c_source_l00109}{vi\+\_\+bitmap\+\_\+set\+\_\+to()}}.
+
+\Hypertarget{bitmap_8c_ab29190c0a111877bcb497e5546de96c3}\label{bitmap_8c_ab29190c0a111877bcb497e5546de96c3} 
+\index{bitmap.c@{bitmap.c}!vi\_bitmap\_set\_to@{vi\_bitmap\_set\_to}}
+\index{vi\_bitmap\_set\_to@{vi\_bitmap\_set\_to}!bitmap.c@{bitmap.c}}
+\doxysubsubsection{\texorpdfstring{vi\_bitmap\_set\_to()}{vi\_bitmap\_set\_to()}}
+{\footnotesize\ttfamily bool vi\+\_\+bitmap\+\_\+set\+\_\+to (\begin{DoxyParamCaption}\item[{vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}}]{b,  }\item[{uint64\+\_\+t}]{bit\+\_\+num,  }\item[{bool}]{val }\end{DoxyParamCaption})}
+
+
+
+Sets a bit to the given state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the bitmap struct \\
+\hline
+{\em bit\+\_\+num} & bit number to set \\
+\hline
+{\em val} & true (1) or false (0) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Success 
+
+false Failure 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{bitmap_8c_source_l00109}{109}} of file \mbox{\hyperlink{bitmap_8c_source}{bitmap.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ uint32\_t\ field\ =\ bit\_num\ /\ VI\_BITMAP\_FIELD\_SIZE;}
+\DoxyCodeLine{00111\ \ \ \ \ uint64\_t\ bit\ =\ bit\_num\ \%\ VI\_BITMAP\_FIELD\_SIZE;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordflow}{if}(\ b\ ==\ NULL\ )\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}vi\_bitmap\ *b\ is\ NULL.\ Failing.\(\backslash\)n"{}}\ );}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordflow}{if}(\ bit\_num\ >\ b-\/>bit\_count\ )\ \{}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}Bit\ number\ exceeded\ allocated\ size.\ bit\_num\ =\ \%d,\ max\ =\ \%d.\(\backslash\)n"{}},\ bit\_num,\ b-\/>bit\_count\ );}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00121\ \ \ \ \ \}}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{comment}{//\ intentionally\ omitting\ field\ size\ check\ for\ speed\ sake,\ given\ b\ ought\ to\ be\ configured\ right\ by\ now}}
+\DoxyCodeLine{00124\ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keywordflow}{if}(\ val\ )\ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ bit}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ b-\/>fields[field]\ =\ b-\/>fields[field]\ |\ (1UL<<bit);}
+\DoxyCodeLine{00128\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ bit}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ b-\/>fields[field]\ =\ b-\/>fields[field]\ \&\ (0UL<<bit);}
+\DoxyCodeLine{00131\ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{comment}{//printf(\ "{}setting\ field:\ \%ld\ \ \ \ bit:\ \%d\ \ \ \ set:\ \%d\ (\%llX)\ \ \ \ field\ data:\ 0x\%llX\(\backslash\)n"{},\ field,\ bit,\ val,\ (1UL<<bit),b-\/>fields[field]\ );}}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00135\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{bitmap_8c_source_l00096}{vi\+\_\+bitmap\+\_\+clear()}}, and \mbox{\hyperlink{bitmap_8c_source_l00084}{vi\+\_\+bitmap\+\_\+set()}}.
+
+\Hypertarget{bitmap_8c_a773aea4aa3c693a73ea0ab5a059df1c3}\label{bitmap_8c_a773aea4aa3c693a73ea0ab5a059df1c3} 
+\index{bitmap.c@{bitmap.c}!vi\_bitmap\_test@{vi\_bitmap\_test}}
+\index{vi\_bitmap\_test@{vi\_bitmap\_test}!bitmap.c@{bitmap.c}}
+\doxysubsubsection{\texorpdfstring{vi\_bitmap\_test()}{vi\_bitmap\_test()}}
+{\footnotesize\ttfamily bool vi\+\_\+bitmap\+\_\+test (\begin{DoxyParamCaption}\item[{vi\+\_\+bitmap \texorpdfstring{$\ast$}{*}}]{b,  }\item[{uint64\+\_\+t}]{bit\+\_\+num }\end{DoxyParamCaption})}
+
+
+
+Tests the state of the given bit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & Pointer to the bitmap struct \\
+\hline
+{\em bit\+\_\+num} & bit number to test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true Bit is set 
+
+false Bit is unset 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{bitmap_8c_source_l00059}{59}} of file \mbox{\hyperlink{bitmap_8c_source}{bitmap.\+c}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ uint32\_t\ field\ =\ bit\_num\ /\ VI\_BITMAP\_FIELD\_SIZE;}
+\DoxyCodeLine{00061\ \ \ \ \ uint64\_t\ bit\ =\ bit\_num\ \%\ VI\_BITMAP\_FIELD\_SIZE;}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{if}(\ b\ ==\ NULL\ )\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}vi\_bitmap\ *b\ is\ NULL.\ Failing.\(\backslash\)n"{}}\ );}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{if}(\ bit\_num\ >\ b-\/>bit\_count\ )\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ printf(\ \textcolor{stringliteral}{"{}Bit\ number\ exceeded\ allocated\ size.\ bit\_num\ =\ \%d,\ max\ =\ \%d.\(\backslash\)n"{}},\ bit\_num,\ b-\/>bit\_count\ );}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordflow}{return}\ (b-\/>fields[field]\ \&\ (1UL<<bit))\ >=\ 1\ ?\ true\ :\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00074\ \}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{bitmap_8c_source_l00138}{vi\+\_\+bitmap\+\_\+for\+\_\+each\+\_\+set()}}.
+
