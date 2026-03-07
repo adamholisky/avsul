@@ -8,7 +8,8 @@ The library is broken down into three areas: data structures, algorithms, and ut
 
 ### Data Structures
 
-| Component | Status | Notes | 
+| Component | Status | Notes |
+|---|---|---|
 | Bit Array | 🔴 |  | 
 | Dictionary | 🔴 |  | 
 | Doubly Linked List | 🔴 |  | 
@@ -17,6 +18,7 @@ The library is broken down into three areas: data structures, algorithms, and ut
 ### Algorithms
 
 | Component | Status | Notes | 
+|---|---|---|
 | CRC32 | 🔴 |  | 
 | RegEx | 🔴 | Very VERY simple | 
 | SHA256 Hash | 🔴 |  | 
@@ -25,6 +27,7 @@ The library is broken down into three areas: data structures, algorithms, and ut
 ### Utilities
 
 | Component | Status | Notes | 
+|---|---|---|
 | AVSI | 🔴 | A Very Simple Interpreter | 
 
 ## Underlying philosophy and goals
