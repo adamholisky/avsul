@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AVSUL: Main Page</title>
+<title>AVSUL: A Very Simple Utility Library</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -68,10 +68,77 @@ $(function() {
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">AVSUL Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">A Very Simple Utility Library </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a> A set of OS-agnostic C data structures and algorithms that function well at various levels of OS functionality and interaction.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+What's Included</h1>
+<p>The library is broken down into three areas: data structures, algorithms, and utilities. Below is a list of what I'm planning on including, and it's status (or lack there of).</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+Data Structures</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Component   </th><th class="markdownTableHeadNone">Status   </th><th class="markdownTableHeadNone">Notes    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Bit Array   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Key-Value Store   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Doubly Linked List   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Graph   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Priority Queue   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Singularly Linked List   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Stack   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Tree   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Algorithms</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Component   </th><th class="markdownTableHeadNone">Status   </th><th class="markdownTableHeadNone">Notes    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">CRC32   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Heapsort   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">RegEx   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone">Very VERY simple    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">SHA256 Hash   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Tokenizer   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone"></td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Utilities</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Component   </th><th class="markdownTableHeadNone">Status   </th><th class="markdownTableHeadNone">Notes    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">AVSI   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone">A Very Simple Interpreter    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">AVSTF   </td><td class="markdownTableBodyNone">🔴   </td><td class="markdownTableBodyNone">A Very Simple Test Framework   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Underlying philosophy and goals</h1>
+<p>There's hundreds upon hundreds of libraries that do this. Why another one? Because my use case in OS development is specific &ndash; something that can run well both when a memory allocator is available or unavailable. Along the same line, a lot of that code that is out there isn't very friendly. Brevity and obscure header file syntax that you only have to use yourself once a year isn't very great for understanding things. I hope to do things different with this!</p>
+<p>Goals for the library:</p><ol type="1">
+<li><b>Dynamic memory allocation is optional</b>. Sometimes malloc isn't very advanced, or isn't something that you want to necessarily use in early stage OS initalization.</li>
+<li><b>Clean code and architecture</b>. Code can be art when done right, and a clean architecture means the API is easy to understand and integrate.</li>
+<li><b>Safety first</b>. Given a choice between writing a safe routine and making the routine a few ticks faster, prefer safety.</li>
+</ol>
+<p>Personally, I have a few goals with this as well:</p><ul>
+<li><b>Full use of standard GNU tools</b></li>
+<li><b>Nearly complete code coverage with <a href="https://cmocka.org/">cmocka</a></b></li>
+<li><b>Full integrated CICD pipeline</b></li>
+<li><b>Nothing is under NDA</b>! Yay! So much of what I've ever written is under lock and key, this is a space for me to show off a high-level of software engineering skills (albiet straight forward, but still useful to me outside of it just being a project). </li>
+</ul>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

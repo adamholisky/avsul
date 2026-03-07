@@ -1,3 +1,13 @@
+/**
+ * @file bitmap.c
+ * @author Adam Holisky (adam.holisky@gmail.com)
+ * @brief A very simple bitmap array
+ * @version 0.1
+ * @date 2026-03-07
+ * 
+ * @copyright Copyright (c) 2026
+ * 
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <bool.h>

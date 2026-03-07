@@ -78,6 +78,9 @@ $(function() {
   <div class="headertitle"><div class="title">bitmap.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>A very simple bitmap array.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;bool.h&gt;</code><br />
@@ -89,7 +92,7 @@ Include dependency graph for bitmap.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="bitmap_8c__incl.png" border="0" usemap="#asrc_2bitmap_8c" alt=""/></div>
 <map name="asrc_2bitmap_8c" id="asrc_2bitmap_8c">
-<area shape="rect" title=" " alt="" coords="217,5,319,31"/>
+<area shape="rect" title="A very simple bitmap array." alt="" coords="217,5,319,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,72,104"/>
 <area shape="poly" title=" " alt="" coords="232,33,86,78,85,73,230,28"/>
 <area shape="rect" title=" " alt="" coords="97,79,167,104"/>
@@ -127,7 +130,15 @@ Functions</h2></td></tr>
 <tr class="memitem:aaf2ab0d77c77e1badf6fb46b01aa31bf" id="r_aaf2ab0d77c77e1badf6fb46b01aa31bf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bitmap_8c.html#aaf2ab0d77c77e1badf6fb46b01aa31bf">vi_bitmap_for_each_set</a> (vi_bitmap *b, void(*func)(VI_BITMAP_FIELD_TYPE, void *), void *data)</td></tr>
 <tr class="separator:aaf2ab0d77c77e1badf6fb46b01aa31bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A very simple bitmap array. </p>
+<dl class="section author"><dt>Author</dt><dd>Adam Holisky (<a href="#" onclick="location.href='mai'+'lto:'+'ada'+'m.'+'hol'+'is'+'ky@'+'gm'+'ail'+'.c'+'om'; return false;">adam.<span class="obfuscator">.nosp@m.</span>holi<span class="obfuscator">.nosp@m.</span>sky@g<span class="obfuscator">.nosp@m.</span>mail<span class="obfuscator">.nosp@m.</span>.com</a>) </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>0.1 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-03-07</dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2026 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="a67cc8e9a31ea46d57089dffa1355d1b5" name="a67cc8e9a31ea46d57089dffa1355d1b5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67cc8e9a31ea46d57089dffa1355d1b5">&#9670;&#160;</a></span>vi_bitmap_clear()</h2>
 
@@ -166,13 +177,13 @@ Functions</h2></td></tr>
 <dd>
 false Failure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00096">96</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   96</span>                                                       {</div>
-<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a>( b, bit_num, <span class="keyword">false</span> );</div>
-<div class="line"><span class="lineno">   98</span>}</div>
-<div class="ttc" id="abitmap_8c_html_ab29190c0a111877bcb497e5546de96c3"><div class="ttname"><a href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a></div><div class="ttdeci">bool vi_bitmap_set_to(vi_bitmap *b, uint64_t bit_num, bool val)</div><div class="ttdoc">Sets a bit to the given state.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00109">bitmap.c:109</a></div></div>
+<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00106">106</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  106</span>                                                       {</div>
+<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a>( b, bit_num, <span class="keyword">false</span> );</div>
+<div class="line"><span class="lineno">  108</span>}</div>
+<div class="ttc" id="abitmap_8c_html_ab29190c0a111877bcb497e5546de96c3"><div class="ttname"><a href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a></div><div class="ttdeci">bool vi_bitmap_set_to(vi_bitmap *b, uint64_t bit_num, bool val)</div><div class="ttdoc">Sets a bit to the given state.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00119">bitmap.c:119</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="bitmap_8c_source.html#l00109">vi_bitmap_set_to()</a>.</p>
+<p class="reference">References <a class="el" href="bitmap_8c_source.html#l00119">vi_bitmap_set_to()</a>.</p>
 
 </div>
 </div>
@@ -211,42 +222,42 @@ false Failure </dd></dl>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool true if successful, false otherwise </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00015">15</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                                                     {</div>
-<div class="line"><span class="lineno">   16</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
-<div class="line"><span class="lineno">   17</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">   18</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   19</span>    }</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">if</span>( size &lt; 1 ) {</div>
-<div class="line"><span class="lineno">   22</span>        printf( <span class="stringliteral">&quot;Size must be 1 or greater. Failing.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">   23</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   24</span>    }</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span>( size &gt;= VI_BITMAP_MAX_BIT_COUNT ) {</div>
-<div class="line"><span class="lineno">   27</span>        printf( <span class="stringliteral">&quot;Size must be under %ld, got %ld. Failing.\n&quot;</span>, VI_BITMAP_MAX_BIT_COUNT, size );</div>
+<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00025">25</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>                                                     {</div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
+<div class="line"><span class="lineno">   27</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
 <div class="line"><span class="lineno">   28</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">   29</span>    }</div>
 <div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    b-&gt;field_count = size / VI_BITMAP_FIELD_SIZE;</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">if</span>( size % VI_BITMAP_FIELD_SIZE != 0 ) {</div>
-<div class="line"><span class="lineno">   34</span>        b-&gt;field_count++;</div>
-<div class="line"><span class="lineno">   35</span>    }</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>    b-&gt;fields = vmalloc( <span class="keyword">sizeof</span>(VI_BITMAP_FIELD_TYPE) * b-&gt;field_count );</div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">if</span>( b-&gt;fields == NULL ) {</div>
-<div class="line"><span class="lineno">   39</span>        printf( <span class="stringliteral">&quot;b-&gt;fields is NULL. Failing.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   41</span>    }</div>
-<div class="line"><span class="lineno">   42</span>    b-&gt;bit_count = size;</div>
-<div class="line"><span class="lineno">   43</span> </div>
-<div class="line"><span class="lineno">   44</span>    memset( b-&gt;fields, 0, b-&gt;field_count * (VI_BITMAP_FIELD_SIZE/8) );</div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span>    printf( <span class="stringliteral">&quot;size: %ld    field_count: %ld\n&quot;</span>, size, b-&gt;field_count );</div>
-<div class="line"><span class="lineno">   47</span> </div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   49</span>}</div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span>( size &lt; 1 ) {</div>
+<div class="line"><span class="lineno">   32</span>        printf( <span class="stringliteral">&quot;Size must be 1 or greater. Failing.\n&quot;</span> );</div>
+<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   34</span>    }</div>
+<div class="line"><span class="lineno">   35</span> </div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">if</span>( size &gt;= VI_BITMAP_MAX_BIT_COUNT ) {</div>
+<div class="line"><span class="lineno">   37</span>        printf( <span class="stringliteral">&quot;Size must be under %ld, got %ld. Failing.\n&quot;</span>, VI_BITMAP_MAX_BIT_COUNT, size );</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    b-&gt;field_count = size / VI_BITMAP_FIELD_SIZE;</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">if</span>( size % VI_BITMAP_FIELD_SIZE != 0 ) {</div>
+<div class="line"><span class="lineno">   44</span>        b-&gt;field_count++;</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>    b-&gt;fields = vmalloc( <span class="keyword">sizeof</span>(VI_BITMAP_FIELD_TYPE) * b-&gt;field_count );</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">if</span>( b-&gt;fields == NULL ) {</div>
+<div class="line"><span class="lineno">   49</span>        printf( <span class="stringliteral">&quot;b-&gt;fields is NULL. Failing.\n&quot;</span> );</div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span>    b-&gt;bit_count = size;</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>    memset( b-&gt;fields, 0, b-&gt;field_count * (VI_BITMAP_FIELD_SIZE/8) );</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    printf( <span class="stringliteral">&quot;size: %ld    field_count: %ld\n&quot;</span>, size, b-&gt;field_count );</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   59</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -282,22 +293,22 @@ false Failure </dd></dl>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00138">138</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span>                                                                                                    {</div>
-<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
-<div class="line"><span class="lineno">  140</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  142</span>    }</div>
-<div class="line"><span class="lineno">  143</span> </div>
-<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">for</span>( uint64_t i = 0; i &lt; b-&gt;bit_count; i++ ) {</div>
-<div class="line"><span class="lineno">  145</span>        <span class="keywordflow">if</span>( <a class="code hl_function" href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">vi_bitmap_test</a>(b,i) ) {</div>
-<div class="line"><span class="lineno">  146</span>            func( i, data );</div>
-<div class="line"><span class="lineno">  147</span>        }</div>
-<div class="line"><span class="lineno">  148</span>    }</div>
-<div class="line"><span class="lineno">  149</span>}</div>
-<div class="ttc" id="abitmap_8c_html_a773aea4aa3c693a73ea0ab5a059df1c3"><div class="ttname"><a href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">vi_bitmap_test</a></div><div class="ttdeci">bool vi_bitmap_test(vi_bitmap *b, uint64_t bit_num)</div><div class="ttdoc">Tests the state of the given bit.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00059">bitmap.c:59</a></div></div>
+<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00148">148</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>                                                                                                    {</div>
+<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
+<div class="line"><span class="lineno">  150</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
+<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  152</span>    }</div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">for</span>( uint64_t i = 0; i &lt; b-&gt;bit_count; i++ ) {</div>
+<div class="line"><span class="lineno">  155</span>        <span class="keywordflow">if</span>( <a class="code hl_function" href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">vi_bitmap_test</a>(b,i) ) {</div>
+<div class="line"><span class="lineno">  156</span>            func( i, data );</div>
+<div class="line"><span class="lineno">  157</span>        }</div>
+<div class="line"><span class="lineno">  158</span>    }</div>
+<div class="line"><span class="lineno">  159</span>}</div>
+<div class="ttc" id="abitmap_8c_html_a773aea4aa3c693a73ea0ab5a059df1c3"><div class="ttname"><a href="bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3">vi_bitmap_test</a></div><div class="ttdeci">bool vi_bitmap_test(vi_bitmap *b, uint64_t bit_num)</div><div class="ttdoc">Tests the state of the given bit.</div><div class="ttdef"><b>Definition</b> <a href="bitmap_8c_source.html#l00069">bitmap.c:69</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="bitmap_8c_source.html#l00059">vi_bitmap_test()</a>.</p>
+<p class="reference">References <a class="el" href="bitmap_8c_source.html#l00069">vi_bitmap_test()</a>.</p>
 
 </div>
 </div>
@@ -339,12 +350,12 @@ false Failure </dd></dl>
 <dd>
 false Failure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00084">84</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   84</span>                                                     {</div>
-<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a>( b, bit_num, <span class="keyword">true</span> );</div>
-<div class="line"><span class="lineno">   86</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00094">94</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   94</span>                                                     {</div>
+<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3">vi_bitmap_set_to</a>( b, bit_num, <span class="keyword">true</span> );</div>
+<div class="line"><span class="lineno">   96</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="bitmap_8c_source.html#l00109">vi_bitmap_set_to()</a>.</p>
+<p class="reference">References <a class="el" href="bitmap_8c_source.html#l00119">vi_bitmap_set_to()</a>.</p>
 
 </div>
 </div>
@@ -393,36 +404,36 @@ false Failure </dd></dl>
 <dd>
 false Failure </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00109">109</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>                                                                  {</div>
-<div class="line"><span class="lineno">  110</span>    uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;</div>
-<div class="line"><span class="lineno">  111</span>    uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
-<div class="line"><span class="lineno">  114</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">  115</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  116</span>    }</div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">if</span>( bit_num &gt; b-&gt;bit_count ) {</div>
-<div class="line"><span class="lineno">  119</span>        printf( <span class="stringliteral">&quot;Bit number exceeded allocated size. bit_num = %d, max = %d.\n&quot;</span>, bit_num, b-&gt;bit_count );</div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  121</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00119">119</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  119</span>                                                                  {</div>
+<div class="line"><span class="lineno">  120</span>    uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;</div>
+<div class="line"><span class="lineno">  121</span>    uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;</div>
 <div class="line"><span class="lineno">  122</span> </div>
-<div class="line"><span class="lineno">  123</span>    <span class="comment">// intentionally omitting field size check for speed sake, given b ought to be configured right by now</span></div>
-<div class="line"><span class="lineno">  124</span>    </div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span>( val ) {</div>
-<div class="line"><span class="lineno">  126</span>        <span class="comment">// Set bit</span></div>
-<div class="line"><span class="lineno">  127</span>        b-&gt;fields[field] = b-&gt;fields[field] | (1UL&lt;&lt;bit);</div>
-<div class="line"><span class="lineno">  128</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  129</span>        <span class="comment">// Clear bit</span></div>
-<div class="line"><span class="lineno">  130</span>        b-&gt;fields[field] = b-&gt;fields[field] &amp; (0UL&lt;&lt;bit);</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
+<div class="line"><span class="lineno">  124</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
+<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  126</span>    }</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">if</span>( bit_num &gt; b-&gt;bit_count ) {</div>
+<div class="line"><span class="lineno">  129</span>        printf( <span class="stringliteral">&quot;Bit number exceeded allocated size. bit_num = %d, max = %d.\n&quot;</span>, bit_num, b-&gt;bit_count );</div>
+<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  131</span>    }</div>
 <div class="line"><span class="lineno">  132</span> </div>
-<div class="line"><span class="lineno">  133</span>    <span class="comment">//printf( &quot;setting field: %ld    bit: %d    set: %d (%llX)    field data: 0x%llX\n&quot;, field, bit, val, (1UL&lt;&lt;bit),b-&gt;fields[field] );</span></div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  135</span>}</div>
+<div class="line"><span class="lineno">  133</span>    <span class="comment">// intentionally omitting field size check for speed sake, given b ought to be configured right by now</span></div>
+<div class="line"><span class="lineno">  134</span>    </div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">if</span>( val ) {</div>
+<div class="line"><span class="lineno">  136</span>        <span class="comment">// Set bit</span></div>
+<div class="line"><span class="lineno">  137</span>        b-&gt;fields[field] = b-&gt;fields[field] | (1UL&lt;&lt;bit);</div>
+<div class="line"><span class="lineno">  138</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><span class="lineno">  139</span>        <span class="comment">// Clear bit</span></div>
+<div class="line"><span class="lineno">  140</span>        b-&gt;fields[field] = b-&gt;fields[field] &amp; (0UL&lt;&lt;bit);</div>
+<div class="line"><span class="lineno">  141</span>    }</div>
+<div class="line"><span class="lineno">  142</span> </div>
+<div class="line"><span class="lineno">  143</span>    <span class="comment">//printf( &quot;setting field: %ld    bit: %d    set: %d (%llX)    field data: 0x%llX\n&quot;, field, bit, val, (1UL&lt;&lt;bit),b-&gt;fields[field] );</span></div>
+<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  145</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="bitmap_8c_source.html#l00096">vi_bitmap_clear()</a>, and <a class="el" href="bitmap_8c_source.html#l00084">vi_bitmap_set()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="bitmap_8c_source.html#l00106">vi_bitmap_clear()</a>, and <a class="el" href="bitmap_8c_source.html#l00094">vi_bitmap_set()</a>.</p>
 
 </div>
 </div>
@@ -464,25 +475,25 @@ false Failure </dd></dl>
 <dd>
 false Bit is unset </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00059">59</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   59</span>                                                      {</div>
-<div class="line"><span class="lineno">   60</span>    uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;</div>
-<div class="line"><span class="lineno">   61</span>    uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
-<div class="line"><span class="lineno">   64</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
-<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   66</span>    }</div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">if</span>( bit_num &gt; b-&gt;bit_count ) {</div>
-<div class="line"><span class="lineno">   69</span>        printf( <span class="stringliteral">&quot;Bit number exceeded allocated size. bit_num = %d, max = %d.\n&quot;</span>, bit_num, b-&gt;bit_count );</div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   71</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="bitmap_8c_source.html#l00069">69</a> of file <a class="el" href="bitmap_8c_source.html">bitmap.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>                                                      {</div>
+<div class="line"><span class="lineno">   70</span>    uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;</div>
+<div class="line"><span class="lineno">   71</span>    uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;</div>
 <div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">return</span> (b-&gt;fields[field] &amp; (1UL&lt;&lt;bit)) &gt;= 1 ? true : <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   74</span>}</div>
+<div class="line"><span class="lineno">   73</span>    <span class="keywordflow">if</span>( b == NULL ) {</div>
+<div class="line"><span class="lineno">   74</span>        printf( <span class="stringliteral">&quot;vi_bitmap *b is NULL. Failing.\n&quot;</span> );</div>
+<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   76</span>    }</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span>( bit_num &gt; b-&gt;bit_count ) {</div>
+<div class="line"><span class="lineno">   79</span>        printf( <span class="stringliteral">&quot;Bit number exceeded allocated size. bit_num = %d, max = %d.\n&quot;</span>, bit_num, b-&gt;bit_count );</div>
+<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   81</span>    }</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">return</span> (b-&gt;fields[field] &amp; (1UL&lt;&lt;bit)) &gt;= 1 ? true : <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   84</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="bitmap_8c_source.html#l00138">vi_bitmap_for_each_set()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="bitmap_8c_source.html#l00148">vi_bitmap_for_each_set()</a>.</p>
 
 </div>
 </div>
