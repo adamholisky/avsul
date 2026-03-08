@@ -19,14 +19,24 @@ TESTS_EXEC = $(subst $(SPACE_CHAR), && ,$(TESTS_BINARIES))
 
 .PHONY: all clean
 
-all: build_debug libavsul examples
+all: libavsul examples tests
 
 libavsul: libavsul.so
 
-libavsul.so: $(AVSUL_OBJECTS)
-	$(CC) $(C_OPTS) -fPIC -shared $^ -o $@
+libavsul.so: libavsul_build_msg $(AVSUL_OBJECTS)
+	$(CC) $(C_OPTS) -fPIC -shared $(AVSUL_OBJECTS) -o $@
+	@echo "========> Building libavsul : Done  <========"
 
-examples: libavsul.so $(EXAMPLES_BINARIES)
+libavsul_build_msg:
+	@echo
+	@echo "========> Building libavsul : Start <========"
+
+examples: libavsul.so examples_build_msg $(EXAMPLES_BINARIES)
+	@echo "========> Building libavsul examples : Done  <========"
+
+examples_build_msg:
+	@echo
+	@echo "========> Building libavsul examples : Start <========"
 
 build/%.o: src/%.c
 	$(CC) $(C_OPTS) -c $< -o $@
@@ -34,8 +44,13 @@ build/%.o: src/%.c
 build-examples/%: examples/%.c
 	$(CC) $(C_OPTS) $< -o $@ -L./ -lavsul -Wl,-rpath=./
 
-tests: libavsul.so $(TESTS_BINARIES)
+tests: libavsul.so tests_build_msg $(TESTS_BINARIES)
+	@echo "========> Building libavsul tests : Done  <========\n"
 	$(TESTS_EXEC)
+
+tests_build_msg:
+	@echo
+	@echo "========> Building libavsul tests : Start <========"
 
 build-tests/%: tests/%.c
 	$(CC) $(C_OPTS) $< -o $@ -L./ -lcmocka -lavsul -Wl,-rpath=./
@@ -57,4 +72,5 @@ clean:
 	rm -rf build/*.o 
 	rm -rf examples/*.o
 	rm -rf build-examples/*
+	rm -rf build-tests/*
 	rm -rf libavsul.so
