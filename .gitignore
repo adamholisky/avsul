@@ -1,0 +1,3 @@
+build/*
+build-examples/*
+libavsul.so

@@ -13,7 +13,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-s
+
 #include "avsul/bitmap.h"
 
 #ifdef __cplusplus

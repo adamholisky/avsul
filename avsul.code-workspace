@@ -3,5 +3,34 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+        {
+            "label": "Make all",
+            "type": "shell",
+            "command": "make",
+			"args": [
+				"clean",
+				"all"
+			],
+			"problemMatcher": [
+            	"$gcc"
+            ],
+			"presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            },
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+        }
+    ]
+	}
 }

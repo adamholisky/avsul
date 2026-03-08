@@ -10,9 +10,9 @@
  */
 #include <stdio.h>
 #include <stdlib.h>
-#include <bool.h>
-#include <stdstr.h>
-
+#include <stdbool.h>
+#include <stdint.h>
+#include <string.h>
 #include "avsul.h"
 #include "avsul/bitmap.h"
 
@@ -44,7 +44,7 @@ bool avsul_bitmap_create( avsul_bitmap *b, uint64_t size ) {
 		b->field_count++;
 	}
 
-	b->fields = vmalloc( sizeof(uint64_t) * b->field_count );
+	b->fields = malloc( sizeof(uint64_t) * b->field_count );
 	if( b->fields == NULL ) {
 		printf( "b->fields is NULL. Failing.\n" );
 		return false;
@@ -53,7 +53,7 @@ bool avsul_bitmap_create( avsul_bitmap *b, uint64_t size ) {
 
 	memset( b->fields, 0, b->field_count * (64/8) );
 
-	printf( "size: %ld    field_count: %ld\n", size, b->field_count );
+	printf( "size: %ld    field_count: %d\n", size, b->field_count );
 
 	return true;
 }
@@ -76,7 +76,7 @@ bool avsul_bitmap_test( avsul_bitmap *b, uint64_t bit_num ) {
 	}
 
 	if( bit_num > b->bit_count ) {
-		printf( "Bit number exceeded allocated size. bit_num = %d, max = %d.\n", bit_num, b->bit_count );
+		printf( "Bit number exceeded allocated size. bit_num = %ld, max = %ld.\n", bit_num, b->bit_count );
 		return false;
 	}
 
@@ -126,7 +126,7 @@ bool avsul_bitmap_set_to( avsul_bitmap *b, uint64_t bit_num, bool val ) {
 	}
 
 	if( bit_num > b->bit_count ) {
-		printf( "Bit number exceeded allocated size. bit_num = %d, max = %d.\n", bit_num, b->bit_count );
+		printf( "Bit number exceeded allocated size. bit_num = %ld, max = %ld.\n", bit_num, b->bit_count );
 		return false;
 	}
 

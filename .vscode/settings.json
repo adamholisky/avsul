@@ -1,0 +1,6 @@
+{
+    "cmake.ignoreCMakeListsMissing": true,
+    "editor.wordWrap":"on",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 4
+}

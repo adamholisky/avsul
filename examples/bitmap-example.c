@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <bool.h>
-#include <stdstr.h>
+#include <stdbool.h>
+#include <string.h>
+#include <stdint.h>
 
 #include "avsul.h"
 #include "avsul/bitmap.h"
@@ -12,9 +13,9 @@ void for_each_callback( uint64_t bit, void *data );
 int main( int argc, char *argv[] ) {
 	printf( "in bitmap tests\n" );
 
-	printf( "sizeof(uint32_t): %d\n", sizeof(uint32_t) );
-	printf( "sizeof(uint64_t): %d\n", sizeof(uint64_t) );
-	printf( "sizeof(size_t): %d\n", sizeof(size_t) );
+	printf( "sizeof(uint32_t): %ld\n", sizeof(uint32_t) );
+	printf( "sizeof(uint64_t): %ld\n", sizeof(uint64_t) );
+	printf( "sizeof(size_t): %ld\n", sizeof(size_t) );
 
 	avsul_bitmap *bitmap = malloc( sizeof(avsul_bitmap) );
 
@@ -23,11 +24,11 @@ int main( int argc, char *argv[] ) {
 		return 1;
 	}
 
-	vit_bitmap_run_test( bitmap, 0 );
-	vit_bitmap_run_test( bitmap, 3 );
-	vit_bitmap_run_test( bitmap, 63 );
-	vit_bitmap_run_test( bitmap, 64 );
-	vit_bitmap_run_test( bitmap, 65 );
+	bitmap_run_test( bitmap, 0 );
+	bitmap_run_test( bitmap, 3 );
+	bitmap_run_test( bitmap, 63 );
+	bitmap_run_test( bitmap, 64 );
+	bitmap_run_test( bitmap, 65 );
 
 	avsul_bitmap_set( bitmap, 512*512 );
 	avsul_bitmap_set( bitmap, 512*512 + 1 );
@@ -40,7 +41,7 @@ int main( int argc, char *argv[] ) {
 	//avsul_bitmap_set( bitmap, 42 );
 	//vit_bitmap_run_test( bitmap, 512*512*4 + 1 );
 
-	avsul_bitmap_for_each_set( bitmap, vit_for_each_callback, NULL );
+	avsul_bitmap_for_each_set( bitmap, for_each_callback, NULL );
 
 	return 0;
 }
@@ -52,12 +53,12 @@ int main( int argc, char *argv[] ) {
  * @param bit bit number
  */
 void bitmap_run_test( avsul_bitmap *b, uint64_t bit ) {
-	printf( "testing bit number %d\n", bit );
-	printf( "    started:   bit %d: %d\n", bit, avsul_bitmap_test( b, bit ) );
+	printf( "testing bit number %ld\n", bit );
+	printf( "    started:   bit %ld: %d\n", bit, avsul_bitmap_test( b, bit ) );
 	avsul_bitmap_set( b, bit );
-	printf( "    after set: bit %d: %d\n", bit, avsul_bitmap_test( b, bit ) );
+	printf( "    after set: bit %ld: %d\n", bit, avsul_bitmap_test( b, bit ) );
 	avsul_bitmap_clear( b, bit );
-	printf( "    after clr: bit %d: %d\n", bit, avsul_bitmap_test( b, bit ) );
+	printf( "    after clr: bit %ld: %d\n", bit, avsul_bitmap_test( b, bit ) );
 }
 
 void for_each_callback( uint64_t bit, void *data ) {
