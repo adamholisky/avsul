@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['library_0',['A Very Simple Utility Library',['../index.html',1,'']]]
+  ['included_0',['What&apos;s Included',['../index.html#autotoc_md1',1,'']]]
 ];

@@ -1,0 +1,5 @@
+<map id="vi_bitmap_for_each_set" name="vi_bitmap_for_each_set">
+<area shape="rect" id="Node000001" title="Iterate through each bitmap value, sending the bit to the given callback." alt="" coords="5,5,183,31"/>
+<area shape="rect" id="Node000002" href="$bitmap_8c.html#a773aea4aa3c693a73ea0ab5a059df1c3" title="Tests the state of the given bit." alt="" coords="231,5,349,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,15,217,15,217,21,183,21"/>
+</map>

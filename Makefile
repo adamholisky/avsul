@@ -1,2 +1,2 @@
-docs: tools/avsul-doxy-config
-	doxygen tools/avsul-doxy-config
+docs: tools/Doxyfile
+	doxygen tools/Doxyfile

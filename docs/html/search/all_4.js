@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['included_0',['What&apos;s Included',['../index.html#autotoc_md1',1,'']]]
+  ['goals_0',['Underlying philosophy and goals',['../index.html#autotoc_md5',1,'']]]
 ];

@@ -14,7 +14,7 @@
 #include <stdstr.h>
 
 #include "avsul.h"
-#include "avsul/avsul.h"
+#include "avsul/bitmap.h"
 
 /**
  * @brief Create a bitmap of the given size
@@ -22,9 +22,9 @@
  * @param size 1 through (max of size_t) bit fields. NOT 0-based.
  * @return bool true if successful, false otherwise
  */
-bool vi_bitmap_create( vi_bitmap *b, uint64_t size ) {
+bool avsul_bitmap_create( avsul_bitmap *b, uint64_t size ) {
 	if( b == NULL ) {
-		printf( "vi_bitmap *b is NULL. Failing.\n" );
+		printf( "avsul_bitmap *b is NULL. Failing.\n" );
 		return false;
 	}
 
@@ -33,25 +33,25 @@ bool vi_bitmap_create( vi_bitmap *b, uint64_t size ) {
 		return false;
 	}
 
-	if( size >= VI_BITMAP_MAX_BIT_COUNT ) {
-		printf( "Size must be under %ld, got %ld. Failing.\n", VI_BITMAP_MAX_BIT_COUNT, size );
+	if( size >= AVSUL_BITMAP_MAX_BIT_COUNT ) {
+		printf( "Size must be under %ld, got %ld. Failing.\n", AVSUL_BITMAP_MAX_BIT_COUNT, size );
 		return false;
 	}
 
-	b->field_count = size / VI_BITMAP_FIELD_SIZE;
+	b->field_count = size / 64;
 
-	if( size % VI_BITMAP_FIELD_SIZE != 0 ) {
+	if( size % 64 != 0 ) {
 		b->field_count++;
 	}
 
-	b->fields = vmalloc( sizeof(VI_BITMAP_FIELD_TYPE) * b->field_count );
+	b->fields = vmalloc( sizeof(uint64_t) * b->field_count );
 	if( b->fields == NULL ) {
 		printf( "b->fields is NULL. Failing.\n" );
 		return false;
 	}
 	b->bit_count = size;
 
-	memset( b->fields, 0, b->field_count * (VI_BITMAP_FIELD_SIZE/8) );
+	memset( b->fields, 0, b->field_count * (64/8) );
 
 	printf( "size: %ld    field_count: %ld\n", size, b->field_count );
 
@@ -66,12 +66,12 @@ bool vi_bitmap_create( vi_bitmap *b, uint64_t size ) {
  * @return true Bit is set
  * @return false Bit is unset
  */
-bool vi_bitmap_test( vi_bitmap *b, uint64_t bit_num ) {
-	uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;
-	uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;
+bool avsul_bitmap_test( avsul_bitmap *b, uint64_t bit_num ) {
+	uint32_t field = bit_num / 64;
+	uint64_t bit = bit_num % 64;
 
 	if( b == NULL ) {
-		printf( "vi_bitmap *b is NULL. Failing.\n" );
+		printf( "avsul_bitmap *b is NULL. Failing.\n" );
 		return false;
 	}
 
@@ -91,8 +91,8 @@ bool vi_bitmap_test( vi_bitmap *b, uint64_t bit_num ) {
  * @return true Success
  * @return false Failure
  */
-bool vi_bitmap_set( vi_bitmap *b, uint64_t bit_num ) {
-	return vi_bitmap_set_to( b, bit_num, true );
+bool avsul_bitmap_set( avsul_bitmap *b, uint64_t bit_num ) {
+	return avsul_bitmap_set_to( b, bit_num, true );
 }
 
 /**
@@ -103,8 +103,8 @@ bool vi_bitmap_set( vi_bitmap *b, uint64_t bit_num ) {
  * @return true Success
  * @return false Failure
  */
-bool vi_bitmap_clear( vi_bitmap *b, uint64_t bit_num ) {
-	return vi_bitmap_set_to( b, bit_num, false );
+bool avsul_bitmap_clear( avsul_bitmap *b, uint64_t bit_num ) {
+	return avsul_bitmap_set_to( b, bit_num, false );
 }
 
 /**
@@ -116,12 +116,12 @@ bool vi_bitmap_clear( vi_bitmap *b, uint64_t bit_num ) {
  * @return true Success
  * @return false Failure
  */
-bool vi_bitmap_set_to( vi_bitmap *b, uint64_t bit_num, bool val ) {
-	uint32_t field = bit_num / VI_BITMAP_FIELD_SIZE;
-	uint64_t bit = bit_num % VI_BITMAP_FIELD_SIZE;
+bool avsul_bitmap_set_to( avsul_bitmap *b, uint64_t bit_num, bool val ) {
+	uint32_t field = bit_num / 64;
+	uint64_t bit = bit_num % 64;
 
 	if( b == NULL ) {
-		printf( "vi_bitmap *b is NULL. Failing.\n" );
+		printf( "avsul_bitmap *b is NULL. Failing.\n" );
 		return false;
 	}
 
@@ -144,15 +144,21 @@ bool vi_bitmap_set_to( vi_bitmap *b, uint64_t bit_num, bool val ) {
 	return true;
 }
 
-
-void vi_bitmap_for_each_set( vi_bitmap *b, void (*func)(VI_BITMAP_FIELD_TYPE, void *), void *data ) {
+/**
+ * @brief Iterate through each bitmap value, sending the bit to the given callback
+ * 
+ * @param b AVSUL bitmap array
+ * @param func pointer to the callback function
+ * @param data data to pass to the callback function
+ */
+void avsul_bitmap_for_each_set( avsul_bitmap *b, void (*func)(uint64_t, void *), void *data ) {
 	if( b == NULL ) {
-		printf( "vi_bitmap *b is NULL. Failing.\n" );
+		printf( "avsul_bitmap *b is NULL. Failing.\n" );
 		return;
 	}
 
 	for( uint64_t i = 0; i < b->bit_count; i++ ) {
-		if( vi_bitmap_test(b,i) ) {
+		if( avsul_bitmap_test(b,i) ) {
 			func( i, data );
 		}
 	}

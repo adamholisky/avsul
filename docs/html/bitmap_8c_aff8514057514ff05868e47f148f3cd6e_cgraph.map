@@ -1,0 +1,5 @@
+<map id="vi_bitmap_set" name="vi_bitmap_set">
+<area shape="rect" id="Node000001" title="Sets the given bit." alt="" coords="5,5,120,31"/>
+<area shape="rect" id="Node000002" href="$bitmap_8c.html#ab29190c0a111877bcb497e5546de96c3" title="Sets a bit to the given state." alt="" coords="168,5,303,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="120,15,154,15,154,21,120,21"/>
+</map>
