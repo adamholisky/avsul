@@ -38,7 +38,7 @@
  *  in 2012 and published it as a part of qLibc component.
  * @endcode
  */
-uint32_t qhashmurmur3_32(const void *data, size_t nbytes) {
+uint32_t avsul_hash_murmur32(const void *data, size_t nbytes) {
     if (data == NULL || nbytes == 0)
         return 0;
 
@@ -113,7 +113,7 @@ uint32_t qhashmurmur3_32(const void *data, size_t nbytes) {
  *   free(ascii);
  * @endcode
  */
-bool qhashmurmur3_128(const void *data, size_t nbytes, void *retbuf) {
+bool avsul_hash_murmur128(const void *data, size_t nbytes, void *retbuf) {
 	if (data == NULL || nbytes == 0)
 		return false;
 

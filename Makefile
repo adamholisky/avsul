@@ -6,11 +6,16 @@ CC = gcc
 C_OPTS := -g -Iinclude
 
 AVSUL_SOURCES := $(wildcard src/*.c)
-AVSUL_OBJECTS := $(patsubst src/%.c, build/%.o, $(AVSUL_SOURCES))
+AVSUL_OBJECTS := $(patsubst src/%.c,build/%.o,$(AVSUL_SOURCES))
 
 EXAMPLES_SOURCES := $(wildcard examples/*.c)
-EXAMPLES_OBJECTS := $(patsubst examples/%.c, build-examples/%.o, $(EXAMPLES_SOURCES))
-EXAMPLES_BINARIES := $(patsubst examples/%.c, build-examples/%, $(EXAMPLES_SOURCES))
+EXAMPLES_OBJECTS := $(patsubst examples/%.c,build-examples/%.o,$(EXAMPLES_SOURCES))
+EXAMPLES_BINARIES := $(patsubst examples/%.c,build-examples/%,$(EXAMPLES_SOURCES))
+
+TESTS_SOURCES := $(wildcard tests/*.c)
+TESTS_BINARIES = $(patsubst tests/%.c,build-tests/%,$(TESTS_SOURCES))
+SPACE_CHAR = $() $()
+TESTS_EXEC = $(subst $(SPACE_CHAR), && ,$(TESTS_BINARIES))
 
 .PHONY: all clean
 
@@ -29,6 +34,12 @@ build/%.o: src/%.c
 build-examples/%: examples/%.c
 	$(CC) $(C_OPTS) $< -o $@ -L./ -lavsul -Wl,-rpath=./
 
+tests: libavsul.so $(TESTS_BINARIES)
+	$(TESTS_EXEC)
+
+build-tests/%: tests/%.c
+	$(CC) $(C_OPTS) $< -o $@ -L./ -lcmocka -lavsul -Wl,-rpath=./
+
 docs: tools/Doxyfile
 	doxygen tools/Doxyfile
 
@@ -38,6 +49,9 @@ build_debug:
 	@echo $(EXAMPLES_SOURCES)
 	@echo $(EXAMPLES_OBJECTS)
 	@echo $(EXAMPLES_BINARIES)
+	@echo $(TESTS_SOURCES)
+	@echo $(TESTS_BINARIES)
+	@echo $(TESTS_EXEC)
 
 clean:
 	rm -rf build/*.o 
