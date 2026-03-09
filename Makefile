@@ -18,7 +18,7 @@ TESTS_EXEC = $(subst $(SPACE_CHAR), && ,$(TESTS_BINARIES))
 
 .PHONY: all clean
 
-all: libavsul examples tests
+all: libavsul examples
 
 libavsul: libavsul.so
 
