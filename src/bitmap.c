@@ -13,7 +13,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <string.h>
-#include "avsul.h"
+#include "avsul/avsul.h"
 #include "avsul/bitmap.h"
 
 /**

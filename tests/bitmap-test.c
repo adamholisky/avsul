@@ -5,7 +5,7 @@
 #include <setjmp.h>
 #include <stdlib.h>
 #include <cmocka.h>
-#include "avsul.h"
+#include "avsul/avsul.h"
 #include "avsul/bitmap.h"
 
 static void test_create_bitmap( void **state ) {

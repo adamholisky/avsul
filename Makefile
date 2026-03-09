@@ -31,6 +31,7 @@ libavsul_build_msg:
 	@echo "========> Building libavsul : Start <========"
 
 examples: libavsul.so examples_build_msg $(EXAMPLES_BINARIES)
+	cp libavsul.so build-examples/
 	@echo "========> Building libavsul examples : Done  <========"
 
 examples_build_msg:

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <cmocka.h>
-#include "avsul.h"
+#include "avsul/avsul.h"
 #include "avsul/hash.h"
 
 const char *test_data = "This is some test data.\n";

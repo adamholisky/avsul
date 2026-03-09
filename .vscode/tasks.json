@@ -1,0 +1,116 @@
+{
+    "tasks": [
+        {
+            "label": "Make all",
+            "type": "shell",
+            "command": "make",
+			"args": [
+				"clean",
+				"all"
+			],
+			"problemMatcher": [
+            	"$gcc"
+            ],
+			"presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            },
+			"group": {
+				"kind": "build"			
+            },
+            "detail": "Custom make all build task for AVSUL"
+        },
+        {
+            "label": "Make current file",
+            "type": "shell",
+            "command": "make",
+			"args": [
+                "-B",
+				"${input:buildFolder}/${fileBasenameNoExtension}",
+			],
+			"problemMatcher": [
+            	"$gcc"
+            ],
+			"presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            },
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+            "detail": "Runs make <filename> on the current file"
+        },
+        {
+            "label": "Clean, build, and run the active file",
+            "command": "${workspaceRoot}/build-examples/${fileBasenameNoExtension}",
+            "type": "shell",
+            "dependsOn": [
+                "Examples: Clean and build the active file"
+            ],
+
+        },
+        {
+            "label": "Examples: Clean and build the active file",
+            "command": "make",
+            "type": "shell",
+            "args": [
+                "build-${relativeFileDirname}/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "dependsOn": [
+                "Examples: Clean executable of the active file"
+            ],
+            "detail": "Builds the active file by running make <filename> from WorkspaceRoot."
+        },
+        {
+            "label": "Examples: Clean executable of the active file",
+            "command": "rm",
+            "type": "shell",
+            "args": [
+                "-rf",
+                "${workspaceRoot}/build-examples/${fileBasenameNoExtension}"
+            ],
+            "options": {
+                "cwd": "${workspaceRoot}"
+            },
+            "detail": "For Examples only -- removes the copmiled object of the active file from the build-examples directory."
+        }
+    ],
+     "inputs": [
+                {
+                    "id": "buildFolder",
+                    "type": "pickString",
+                    "description": "Select the build folder for the current file",
+                    "options": [
+                        {
+                            "label": "AVSUL Library",
+                            "value": "build"
+                        },
+                        {
+                            "label": "Examples",
+                            "value": "build-examples"
+                        },
+                        {
+                            "label": "Tests",
+                            "value": "build-tests"
+                        }
+                    ]
+                }
+            ],  
+    "version": "2.0.0"
+}
