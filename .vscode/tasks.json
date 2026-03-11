@@ -4,14 +4,14 @@
             "label": "Make all",
             "type": "shell",
             "command": "make",
-			"args": [
-				"clean",
-				"all"
-			],
-			"problemMatcher": [
-            	"$gcc"
+            "args": [
+                "clean",
+                "all"
             ],
-			"presentation": {
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
                 "echo": true,
                 "reveal": "always",
                 "focus": true,
@@ -19,16 +19,20 @@
                 "showReuseMessage": false,
                 "clear": false
             },
-            "detail": "Custom make all build task for AVSUL"
+            "detail": "Custom make all build task for AVSUL",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "Make tests",
             "type": "shell",
             "command": "make -B tests",
-			"problemMatcher": [
-            	"$gcc"
+            "problemMatcher": [
+                "$gcc"
             ],
-			"presentation": {
+            "presentation": {
                 "echo": true,
                 "reveal": "always",
                 "focus": true,
@@ -42,14 +46,14 @@
             "label": "Make current file",
             "type": "shell",
             "command": "make",
-			"args": [
+            "args": [
                 "-B",
-				"${input:buildFolder}/${fileBasenameNoExtension}",
-			],
-			"problemMatcher": [
-            	"$gcc"
+                "${input:buildFolder}/${fileBasenameNoExtension}"
             ],
-			"presentation": {
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
                 "echo": true,
                 "reveal": "always",
                 "focus": true,
@@ -66,7 +70,9 @@
             "dependsOn": [
                 "Examples: Clean and build the active file"
             ],
-
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "Examples: Clean and build the active file",

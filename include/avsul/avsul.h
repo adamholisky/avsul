@@ -14,7 +14,14 @@
 extern "C" {
 #endif
 
+#include <stdint.h>
 #include "avsul/bitmap.h"
+#include "avsul/list.h"
+
+#ifdef AVSUL_NO_ALLOCATOR
+    #define #AVSUL_STATIC_ALLOCATION
+#endif
+
 
 #ifdef __cplusplus
 }
