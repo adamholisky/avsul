@@ -129,7 +129,9 @@ avs_list* avs_list_insert_after( avs_list *list, avs_node *after_node, void *dat
     node->next = after_node;
 
     // are we inserting at the end of the list?
-    if( after_node->next == NULL )
+    if( after_node->next == NULL ) {
+        // ADAM RESUME HERE
+    }
 }
 
 /**
@@ -211,7 +213,7 @@ avs_node *avs_list_at_index_node( avs_list *list, int index ) {
  * @param node Pointer to the node to remove
  * @return avs_list* NULL if failed, otherwise pointer to the avs_list
  */
-avs_list *avs_list_remove( avs_list *list, avs_node *node ) {
+avs_node *avs_list_remove( avs_list *list, avs_node *node ) {
     /// TODO: check to ensure the node is in the list
 
     avs_node *new_next_node = node->next;
@@ -236,7 +238,7 @@ avs_list *avs_list_remove( avs_list *list, avs_node *node ) {
     
     list->size--;
 
-    return list;
+    return node;
 }
 
 /**
