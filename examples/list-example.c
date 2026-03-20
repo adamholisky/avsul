@@ -56,6 +56,11 @@ int main( int argc, char *argv[] ) {
     } else {
         printf( "Couldn't find Pike. Oops.\n" );
     }
+
+    printf( "Insert AFTER april:\n" );
+    avs_node *n_april = avs_list_find_data( l, "April", compare_test_list_data );
+    avs_list_insert_after( l, n_april, "Riker" );
+    avs_list_for_each( l, print_node );
     
     return 0;
 }

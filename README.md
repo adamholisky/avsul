@@ -10,12 +10,11 @@ The library is broken down into three areas: data structures, algorithms, and ut
 
 | Component | Status | Notes |
 |---|---|---|
-| Bit Array | 🔴 |  | 
+| Bit Array | 🟡 |  | 
 | Key-Value Store | 🔴 |  | 
-| Doubly Linked List | 🔴 |  | 
+| Doubly Linked List | 🟡 |  | 
 | Graph | 🔴 |  |
 | Priority Queue | 🔴 |  |
-| Singularly Linked List | 🔴 |  | 
 | Stack | 🔴 |  |
 | Tree | 🔴 |  |
 
@@ -25,6 +24,7 @@ The library is broken down into three areas: data structures, algorithms, and ut
 |---|---|---|
 | CRC32 | 🔴 |  | 
 | Heapsort | 🔴 |  |
+| Other Hases | 🟡 |
 | RegEx | 🔴 | Very VERY simple | 
 | SHA256 Hash | 🔴 |  | 
 | Tokenizer | 🔴 |  |

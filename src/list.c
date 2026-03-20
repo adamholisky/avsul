@@ -14,6 +14,11 @@
 #include "avsul/avsul.h"
 #include "avsul/list.h"
 
+/**
+ * @brief Initalize an AVS list
+ * 
+ * @return avs_list* Pointer to the AVS list, fully allocated. NULL if failure.
+ */
 avs_list* avs_list_init( void ) {    
     avs_list *list = malloc( sizeof(avs_list) );
 
@@ -36,7 +41,7 @@ avs_list* avs_list_init( void ) {
  * @return avs_list* NULL if failed, otherwise pointer to the avs_list
  */
 avs_list* avs_list_append( avs_list *list, void *data ) {
-    avs_node *node = malloc( sizeof(avs_node) );
+    /* avs_node *node = malloc( sizeof(avs_node) );
 
     node->data = data;
     node->prev = list->tail;
@@ -53,7 +58,9 @@ avs_list* avs_list_append( avs_list *list, void *data ) {
 
     list->size++;
 
-    return list;
+    return list; */
+
+    return avs_list_insert_after( list, NULL, data );
 }
 
 /**
@@ -110,6 +117,8 @@ avs_list* avs_list_insert_before( avs_list *list, avs_node *before_node, void *d
         node->prev->next = node;
     }
 
+    list->size++;
+
     return list;
 }
 
@@ -126,12 +135,30 @@ avs_list* avs_list_insert_after( avs_list *list, avs_node *after_node, void *dat
 
     node->data = data;
     node->prev = NULL;
-    node->next = after_node;
+    node->next = NULL;
 
-    // are we inserting at the end of the list?
-    if( after_node->next == NULL ) {
-        // ADAM RESUME HERE
+    // after_node being NULL means add to end of list
+    // OR if after_node is set to the list's tail
+    if( after_node == NULL || after_node == list->tail ) {
+        if( list->tail == NULL ) {
+            list->head = node;
+        } else {
+            list->tail->next = node;
+            node->prev = list->tail;
+        }
+
+        list->tail = node;
+    } else {
+        node->next = after_node->next;
+        node->next->prev = node;
+        node->prev = after_node;
+        after_node->next = node;
+        printf("..");
     }
+
+    list->size++;
+
+    return list;
 }
 
 /**
