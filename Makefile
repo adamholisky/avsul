@@ -3,7 +3,7 @@
 ROOT_DIR = $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 
 CC = gcc
-C_OPTS := -g -Iinclude
+C_OPTS := -g -Iinclude -fPIC
 
 AVSUL_SOURCES := $(wildcard src/*.c)
 AVSUL_OBJECTS := $(patsubst src/%.c,build/%.o,$(AVSUL_SOURCES))

@@ -10,7 +10,7 @@
  */
 #include <stdio.h>
 #include <string.h>
-#include <avsul/avsul.h>
+#include <avsul.h>
 #include <avsul/list.h>
 
 void print_node( avs_node *n );
@@ -60,6 +60,15 @@ int main( int argc, char *argv[] ) {
     printf( "Insert AFTER april:\n" );
     avs_node *n_april = avs_list_find_data( l, "April", compare_test_list_data );
     avs_list_insert_after( l, n_april, "Riker" );
+    avs_list_for_each( l, print_node );
+
+    printf( "Insert AFTER tail:\n" );
+    avs_list_insert_after( l, l->tail, "Picard" );
+    avs_list_for_each( l, print_node );
+
+    printf( "Insert AFTER mid:\n" );
+    avs_node *n_riker = avs_list_find_data( l, "Riker", compare_test_list_data );
+    avs_list_insert_after( l, n_riker, "Garret" );
     avs_list_for_each( l, print_node );
     
     return 0;

@@ -4,7 +4,7 @@
 #include <string.h>
 #include <stdint.h>
 
-#include "avsul/avsul.h"
+#include "avsul.h"
 #include "avsul/bitmap.h"
 
 void bitmap_run_test( avsul_bitmap *b, uint64_t bit );

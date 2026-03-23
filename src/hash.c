@@ -12,7 +12,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <stdint.h>
-#include "avsul/avsul.h"
+#include "avsul.h"
 #include "avsul/hash.h"
 
 /**

@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "avsul/avsul.h"
+#include "avsul.h"
 #include "avsul/list.h"
 
 /**
@@ -20,7 +20,9 @@
  * @return avs_list* Pointer to the AVS list, fully allocated. NULL if failure.
  */
 avs_list* avs_list_init( void ) {    
-    avs_list *list = malloc( sizeof(avs_list) );
+    avs_init();
+
+    avs_list *list = avs_allocate( sizeof(avs_list) );
 
     if( list == NULL ) {
         return NULL;
@@ -41,7 +43,7 @@ avs_list* avs_list_init( void ) {
  * @return avs_list* NULL if failed, otherwise pointer to the avs_list
  */
 avs_list* avs_list_append( avs_list *list, void *data ) {
-    /* avs_node *node = malloc( sizeof(avs_node) );
+    /* avs_node *node = avs_allocate( sizeof(avs_node) );
 
     node->data = data;
     node->prev = list->tail;
@@ -71,7 +73,7 @@ avs_list* avs_list_append( avs_list *list, void *data ) {
  * @return avs_list* 
  */
 avs_list* avs_list_prepend( avs_list *list, void *data ) {
-    avs_node *node = malloc( sizeof(avs_node) );
+    /* avs_node *node = avs_allocate( sizeof(avs_node) );
 
     node->data = data;
     node->prev = NULL;
@@ -81,7 +83,9 @@ avs_list* avs_list_prepend( avs_list *list, void *data ) {
         list->tail = node;
     }
 
-    list->head = node;
+    list->head = node; */
+
+    return avs_list_insert_before( list, list->head, data );
 }
 
 /**
@@ -93,7 +97,7 @@ avs_list* avs_list_prepend( avs_list *list, void *data ) {
  * @return avs_list* 
  */
 avs_list* avs_list_insert_before( avs_list *list, avs_node *before_node, void *data ) {
-    avs_node *node = malloc( sizeof(avs_node) );
+    avs_node *node = avs_allocate( sizeof(avs_node) );
 
     node->data = data;
     node->prev = NULL;
@@ -131,7 +135,7 @@ avs_list* avs_list_insert_before( avs_list *list, avs_node *before_node, void *d
  * @return avs_list* 
  */
 avs_list* avs_list_insert_after( avs_list *list, avs_node *after_node, void *data ) {
-    avs_node *node = malloc( sizeof(avs_node) );
+    avs_node *node = avs_allocate( sizeof(avs_node) );
 
     node->data = data;
     node->prev = NULL;
@@ -186,7 +190,7 @@ void* avs_list_pop( avs_list *list ) {
     avs_node *node = avs_list_remove( list, list->head );
     void *data = node->data;
 
-    free(node);
+    avs_free(node);
 
     return data;
 }
@@ -234,7 +238,7 @@ avs_node *avs_list_at_index_node( avs_list *list, int index ) {
 }
 
 /**
- * @brief Removes an element from the list, does NOT free memory
+ * @brief Removes an element from the list, does NOT avs_free memory
  * 
  * @param list Pointer to the avs_list
  * @param node Pointer to the node to remove
@@ -269,7 +273,7 @@ avs_node *avs_list_remove( avs_list *list, avs_node *node ) {
 }
 
 /**
- * @brief Removes an element from the list and frees the memory
+ * @brief Removes an element from the list and avs_frees the memory
  * 
  * @param list Pointer to the avs_list
  * @param node Pointer to the node to remove
@@ -277,7 +281,7 @@ avs_node *avs_list_remove( avs_list *list, avs_node *node ) {
  */
 avs_list *avs_list_free( avs_list *list, avs_node *node ) {
     if( avs_list_remove(list, node) != NULL ) {
-        free(node);
+        avs_free(node);
         return list;
     }
 
