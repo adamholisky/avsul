@@ -338,3 +338,50 @@ avs_node* avs_list_find_data( avs_list *list, void *data_to_find, int (*comparis
 
     return NULL;
 }
+
+/**
+ * @brief Empties out the given list
+ * 
+ * @param list pointer to an avs_list
+ */
+void avs_list_empty( avs_list *list ) {
+    while( list->head ) {
+        avs_list_free( list, list->head );
+    }
+
+    list->size = 0;
+}
+
+/**
+ * @brief Enqueues data to the "front" of the list
+ * 
+ * @param list 
+ * @param data 
+ * @return avs_list* 
+ */
+avs_list* avs_list_enqueue( avs_list *list, void *data ) {
+    if( list == NULL ) {
+        return NULL;
+    }
+
+    return avs_list_prepend( list, data );
+}
+
+/**
+ * @brief Dequeues data from the "back" of the list
+ * 
+ * @param list 
+ * @return void* 
+ */
+void* avs_list_dequeue( avs_list *list ) {
+    if( list == NULL ) {
+        return NULL;
+    }
+
+    avs_node *node = avs_list_remove( list, list->tail );
+    void *data = node->data;
+
+    avs_free(node);
+
+    return data;
+}

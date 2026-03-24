@@ -15,7 +15,7 @@ The library is broken down into three areas: data structures, algorithms, and ut
 | Doubly Linked List | 🟡 |  | 
 | Graph | 🔴 |  |
 | Priority Queue | 🔴 |  |
-| Stack | 🔴 |  |
+| Stack | 🟡 |  |
 | Tree | 🔴 |  |
 
 ### Algorithms

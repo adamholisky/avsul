@@ -23,6 +23,8 @@
  * @return bool true if successful, false otherwise
  */
 bool avsul_bitmap_create( avsul_bitmap *b, uint64_t size ) {
+	avs_init();
+
 	if( b == NULL ) {
 		printf( "avsul_bitmap *b is NULL. Failing.\n" );
 		return false;
@@ -44,7 +46,7 @@ bool avsul_bitmap_create( avsul_bitmap *b, uint64_t size ) {
 		b->field_count++;
 	}
 
-	b->fields = malloc( sizeof(uint64_t) * b->field_count );
+	b->fields = avs_allocate( sizeof(uint64_t) * b->field_count );
 	if( b->fields == NULL ) {
 		printf( "b->fields is NULL. Failing.\n" );
 		return false;

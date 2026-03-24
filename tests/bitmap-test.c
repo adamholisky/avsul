@@ -5,13 +5,15 @@
 #include <setjmp.h>
 #include <stdlib.h>
 #include <cmocka.h>
-#include "avsul/avsul.h"
+#include "avsul.h"
 #include "avsul/bitmap.h"
 
 static void test_create_bitmap( void **state ) {
     (void) state;
 
-    avsul_bitmap *bitmap = malloc( sizeof(avsul_bitmap) );
+    avs_init();
+
+    avsul_bitmap *bitmap = avs_allocate( sizeof(avsul_bitmap) );
 
 	assert_true( avsul_bitmap_create( bitmap, 512*512 ) );
 
